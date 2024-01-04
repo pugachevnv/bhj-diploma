@@ -46,12 +46,12 @@ class Modal {
    * со значением «block»
    * */
   open() {
-    this.element.data.style.display = 'block';
+    this.element.style.display = "block";
   }
   /**
    * Закрывает окно: удаляет CSS-свойство display
    * */
   close(){
-    this.element.data.style.removeProperty('display');
+    this.element.style.removeProperty('display');
   }
 }

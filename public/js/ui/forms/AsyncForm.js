@@ -40,9 +40,18 @@ class AsyncForm {
    * */
   getData() {
     const form = document.getElementById( 'login-form' ),
-      formData = new FormData( form );
+      formData = new FormData( form ),
+      entries = formData.entries();
+      data = {};
+    
+    for (let item of entries) {
+      const key = item[ 0 ],
+        value = item[ 1 ];
+      
+      data[key] = value;
+    }
 
-    return Object.fromEntries(formData.entries());
+    return data;
   }
 
   onSubmit(options){
