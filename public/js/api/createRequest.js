@@ -21,7 +21,7 @@ const createRequest = (options = {}) => {
         xhr.send()
 
     } else {
-        
+        formData = new FormData();
         for (let key in options.data) {
             formData.append(key, options.data[key])
         }
@@ -36,9 +36,10 @@ const createRequest = (options = {}) => {
     xhr.addEventListener("load", (e) => {
         if (xhr.response.success) {
             options.callback(null, xhr.response);
+            console.log(xhr.response);
         }
         else {
-            options.callback(xhr.response.error, null);
+            options.callback(new Error(xhr.response.error), null);
         }
     });
 
