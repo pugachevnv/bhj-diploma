@@ -39,19 +39,20 @@ class AsyncForm {
    * }
    * */
   getData() {
-    const form = document.getElementById( 'login-form' ),
-      formData = new FormData( form ),
-      entries = formData.entries();
-      data = {};
+    const formData = new FormData( this.element );
+    //   entries = formData.entries();
+    //   data = {};
     
-    for (let item of entries) {
-      const key = item[ 0 ],
-        value = item[ 1 ];
+    // for (let item of entries) {
+    //   const key = item[ 0 ],
+    //     value = item[ 1 ];
       
-      data[key] = value;
-    }
+    //   data[key] = value;
+    // }
 
-    return data;
+    // return data;
+    console.log(Object.fromEntries(formData.entries()))
+    return Object.fromEntries(formData.entries());
   }
 
   onSubmit(options){
@@ -63,6 +64,7 @@ class AsyncForm {
    * данные, полученные из метода getData()
    * */
   submit() {
-    this.onSubmit(this.getData())
+    const data = this.getData();
+    this.onSubmit(data);
   }
 }
