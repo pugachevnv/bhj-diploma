@@ -54,8 +54,8 @@ class Sidebar {
 
     logoutBtn.addEventListener('click', (event) => {
       event.preventDefault();
-      User.logout((response) => {
-        if (response.succes) {
+      User.logout((err, response) => {
+        if (response && response.succes) {
           App.setState( 'init' );
         }
       });
