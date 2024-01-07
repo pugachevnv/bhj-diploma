@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 /**
  * Класс User управляет авторизацией, выходом и
  * регистрацией пользователя из приложения
@@ -29,7 +27,7 @@ class User {
    * из локального хранилища
    * */
   static current() {
-    localStorage.getItem('user', JSON.parse('user'));
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   /**
@@ -39,10 +37,9 @@ class User {
   static fetch(callback) {
     createRequest({
       url: this.URL + "/current",
-      data,
       method: 'GET',
       callback: (err, response) => {
-        if (response && response.user) {
+        if (response && response.success) {
           this.setCurrent(response.user);
         } else {
           this.unsetCurrent();
@@ -100,10 +97,9 @@ class User {
    * */
   static logout(callback) {
     createRequest({
-      url: this.URL + '/logot',
+      url: this.URL + '/logout',
       method: 'POST',
       responseType: 'json',
-      data,
       callback: (err, response) => {
         if (response && response.user) {
           this.unsetCurrent();
