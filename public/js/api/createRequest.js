@@ -17,8 +17,6 @@ const createRequest = (options = {}) => {
         }
         sendUrl.slice(0, -1);
 
-        xhr.open(options.method, sendUrl);
-        xhr.send()
 
     } else {
         formData = new FormData();
@@ -26,8 +24,7 @@ const createRequest = (options = {}) => {
             formData.append(key, options.data[key])
         }
 
-        xhr.open(options.method, sendUrl);
-        xhr.send(formData);
+
     }
     
     // metod (options.method)
