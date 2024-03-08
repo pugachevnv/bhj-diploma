@@ -11,7 +11,13 @@ class TransactionsPage {
    * через registerEvents()
    * */
   constructor( element ) {
+    if (!element) {
+      throw new Error('Переданный элемент не существует!');
+    }
 
+    this.element = element;
+    
+    this.registerEvents();
   }
 
   /**
@@ -28,6 +34,17 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
+    this.element.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      this.removeTransaction(event.target.closest('.transaction__remove'));
+    });
+
+    this.element.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      this.removeAccount(event.target.closest('.remove-account'));
+    });
 
   }
 

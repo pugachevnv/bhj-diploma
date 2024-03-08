@@ -39,15 +39,14 @@ class AccountsWidget {
       App.getModal('createAccount').open();
     });
     
-    const accountSelect = [...document.querySelectorAll('.account')];
-    
-    accountSelect.forEach((item) => {
-      item.addEventListener('click', (event) => {
-        event.preventDefault();
-        
-        this.onSelectAccount(item);
-      });
-    });
+
+    this.element.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      this.onSelectAccount(event.target.closest('.account'));
+
+    })
+
   }
 
   /**
@@ -66,7 +65,11 @@ class AccountsWidget {
       Account.list(currentUser, (err, response) => {
         if (response && response.success){
           this.clear();
-          this.renderItem(response);
+          const accountsList = response.data;
+          accountsList.forEach(item => {
+            this.renderItem(item);
+          });
+          
         } else {
           alert(err);
         }
@@ -95,9 +98,17 @@ class AccountsWidget {
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
   onSelectAccount( element ) {
-    element.classList.add('.active');
+  
+    const accountId = element.dataset.id;
 
-    App.showPage( 'transactions', { account_id: element.dataset.id });
+    const preActiveAccount = this.element.querySelector('.active');
+    if (preActiveAccount) {
+      preActiveAccount.classList.remove('active');
+    }
+    element.classList.add('active');
+
+    App.showPage( 'transactions', { account_id: accountId });
+
   }
 
   /**
@@ -106,16 +117,15 @@ class AccountsWidget {
    * item - объект с данными о счёте
    * */
   getAccountHTML(item){
-    const newAccountHTML = document.createElement( 'li' );
-    newAccountHTML.className = 'account';
-    newAccountHTML.dataset.id = item.id;
-    newAccountHTML.innerHTML = `
-      <a href="#">
-        <span>${item.name}</span> /
-        <span>${item.sum}</span>
-      </a>
+    return `
+      <li class="account" data-id="${item.id}">  
+        <a href="#">
+          <span>${item.name}</span> /
+          <span>${item.sum}</span>
+        </a>
+      <li/>
     `;
-    this.element.appendChild(newAccountHTML);
+    
   }
 
   /**
@@ -125,8 +135,8 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(data){
-    const accountList = data.data.forEach((item) => {
-      this.getAccountHTML(item);
-    });
+    const accountHTML = this.getAccountHTML(data);
+    this.element.insertAdjacentHTML("beforeEnd", accountHTML);
+    
   }
 }

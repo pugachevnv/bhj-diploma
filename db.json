@@ -155,6 +155,12 @@
       "email": "demo@demo2.com",
       "password": "5t",
       "id": "y2ze4hzlshf7eul"
+    },
+    {
+      "name": "NewNikita",
+      "email": "18@nik.ru",
+      "password": "1234",
+      "id": "y2ze1ae8lsnbuoob"
     }
   ],
   "accounts": [
@@ -217,6 +223,16 @@
       "name": "ОТП",
       "user_id": "3ep41b6lr2gqygq",
       "id": "y2ze179blsn6u9ui"
+    },
+    {
+      "name": "сбер",
+      "user_id": "y2ze1ae8lsnbuoob",
+      "id": "y2ze1afylsnbvxj5"
+    },
+    {
+      "name": "втб",
+      "user_id": "3ep41b6lr2gqygq",
+      "id": "y2zeh5oltah6kgz"
     }
   ],
   "transactions": [
@@ -354,6 +370,51 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "y2zex64ltdd7zlc",
+      "type": "expense",
+      "name": "игрушка ",
+      "sum": 300,
+      "account_id": "y2ze7lblshkr7ed",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-04T20:00:01.775Z"
+    },
+    {
+      "id": "y2zexcfltdd9t7i",
+      "type": "income",
+      "name": "d kjc ekjv ",
+      "sum": 1000,
+      "account_id": "y2ze7rilshksnqz",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-04T20:01:26.813Z"
+    },
+    {
+      "id": "y2zexljltddew81",
+      "type": "income",
+      "name": "дашка какашка",
+      "sum": 10000,
+      "account_id": "y2ze7talshl2fbw",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-04T20:05:24.000Z"
+    },
+    {
+      "id": "y2zexonltddgobc",
+      "type": "expense",
+      "name": "шаурма ",
+      "sum": 300,
+      "account_id": "y2ze7lblshkr7ed",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-04T20:06:47.063Z"
+    },
+    {
+      "id": "y2ze17z8ltj3arva",
+      "type": "income",
+      "name": "долг вернули",
+      "sum": 10000,
+      "account_id": "y2ze7lblshkr7ed",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-08T20:08:52.629Z"
     }
   ]
 }
