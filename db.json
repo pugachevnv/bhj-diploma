@@ -180,39 +180,9 @@
       "id": "3"
     },
     {
-      "name": "Сбер",
-      "user_id": "3ep41b6lr2gqygq",
-      "id": "y2ze7lblshkr7ed"
-    },
-    {
-      "name": "Тинькоф",
-      "user_id": "3ep41b6lr2gqygq",
-      "id": "y2ze7rilshksnqz"
-    },
-    {
-      "name": "usdt",
-      "user_id": "3ep41b6lr2gqygq",
-      "id": "y2ze7talshl2fbw"
-    },
-    {
       "name": "райфайзен",
       "user_id": "3ep41b6lr2gqygq",
       "id": "y2ze7w4lshl3l17"
-    },
-    {
-      "name": "озон",
-      "user_id": "3ep41b6lr2gqygq",
-      "id": "y2ze7xolshl4cmi"
-    },
-    {
-      "name": "альфа-банк",
-      "user_id": "3ep41b6lr2gqygq",
-      "id": "y2zeyhvlsluwluf"
-    },
-    {
-      "name": "ziraat",
-      "user_id": "3ep41b6lr2gqygq",
-      "id": "y2zeyiplsluzmxl"
     },
     {
       "name": "fibabanka",
@@ -233,6 +203,11 @@
       "name": "втб",
       "user_id": "3ep41b6lr2gqygq",
       "id": "y2zeh5oltah6kgz"
+    },
+    {
+      "name": "Сбер",
+      "user_id": "3ep41b6lr2gqygq",
+      "id": "y2ze20bdltys7p7e"
     }
   ],
   "transactions": [
@@ -372,49 +347,58 @@
       "user_id": "1"
     },
     {
-      "id": "y2zex64ltdd7zlc",
-      "type": "expense",
-      "name": "игрушка ",
-      "sum": 300,
-      "account_id": "y2ze7lblshkr7ed",
+      "id": "y2zensltyui76w",
+      "type": "income",
+      "name": "зарплата",
+      "sum": 100000,
+      "account_id": "y2ze7w4lshl3l17",
       "user_id": "3ep41b6lr2gqygq",
-      "created_at": "2024-03-04T20:00:01.775Z"
+      "created_at": "2024-03-19T20:47:01.351Z"
     },
     {
-      "id": "y2zexcfltdd9t7i",
-      "type": "income",
-      "name": "d kjc ekjv ",
+      "id": "y2ze4axltzsph4x",
+      "type": "expense",
+      "name": "две шоколадки",
+      "sum": 200,
+      "account_id": "y2ze7w4lshl3l17",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-20T12:44:27.776Z"
+    },
+    {
+      "id": "y2ze4bqltzspnn5",
+      "type": "expense",
+      "name": "рестик",
+      "sum": 1900,
+      "account_id": "y2ze7w4lshl3l17",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-20T12:44:36.208Z"
+    },
+    {
+      "id": "y2ze4cjltzspvv5",
+      "type": "expense",
+      "name": "вкусно и точка",
+      "sum": 700,
+      "account_id": "y2ze7w4lshl3l17",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-20T12:44:46.864Z"
+    },
+    {
+      "id": "y2ze4o4ltzsurvi",
+      "type": "expense",
+      "name": "water",
+      "sum": 150,
+      "account_id": "y2ze7w4lshl3l17",
+      "user_id": "3ep41b6lr2gqygq",
+      "created_at": "2024-03-20T12:48:34.973Z"
+    },
+    {
+      "id": "y2ze4qzltzsvp65",
+      "type": "expense",
+      "name": "taxi",
       "sum": 1000,
-      "account_id": "y2ze7rilshksnqz",
+      "account_id": "y2ze7w4lshl3l17",
       "user_id": "3ep41b6lr2gqygq",
-      "created_at": "2024-03-04T20:01:26.813Z"
-    },
-    {
-      "id": "y2zexljltddew81",
-      "type": "income",
-      "name": "дашка какашка",
-      "sum": 10000,
-      "account_id": "y2ze7talshl2fbw",
-      "user_id": "3ep41b6lr2gqygq",
-      "created_at": "2024-03-04T20:05:24.000Z"
-    },
-    {
-      "id": "y2zexonltddgobc",
-      "type": "expense",
-      "name": "шаурма ",
-      "sum": 300,
-      "account_id": "y2ze7lblshkr7ed",
-      "user_id": "3ep41b6lr2gqygq",
-      "created_at": "2024-03-04T20:06:47.063Z"
-    },
-    {
-      "id": "y2ze17z8ltj3arva",
-      "type": "income",
-      "name": "долг вернули",
-      "sum": 10000,
-      "account_id": "y2ze7lblshkr7ed",
-      "user_id": "3ep41b6lr2gqygq",
-      "created_at": "2024-03-08T20:08:52.629Z"
+      "created_at": "2024-03-20T12:49:18.124Z"
     }
   ]
 }

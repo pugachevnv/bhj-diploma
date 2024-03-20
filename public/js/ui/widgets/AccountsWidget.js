@@ -42,8 +42,10 @@ class AccountsWidget {
 
     this.element.addEventListener('click', (event) => {
       event.preventDefault();
-
-      this.onSelectAccount(event.target.closest('.account'));
+      if (event.target.closest('.account')) {
+        
+        this.onSelectAccount(event.target.closest('.account'));
+      }
 
     })
 
@@ -100,7 +102,7 @@ class AccountsWidget {
   onSelectAccount( element ) {
   
     const accountId = element.dataset.id;
-
+    
     const preActiveAccount = this.element.querySelector('.active');
     if (preActiveAccount) {
       preActiveAccount.classList.remove('active');
