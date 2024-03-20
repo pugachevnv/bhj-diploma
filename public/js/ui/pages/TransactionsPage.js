@@ -65,7 +65,7 @@ class TransactionsPage {
       if (confirm('Вы действительно хотите удалить счёт?')) {        
         Account.remove({ id: this.lastOptions.account_id }, (err, response) => {
           if (response && response.success){
-            this.update();
+            this.clear();
             App.updateWidgets();
             App.updateForms();
             
@@ -89,9 +89,9 @@ class TransactionsPage {
     
       Transaction.remove({ id: id.dataset.id}, (err, response) => {
         if (response && response.success){
-          this.update();
-          App.updateWidgets();
-          // App.update();
+          // this.update();
+          // App.updateWidgets();
+          App.update();
           // this.clear();
         } else {
           alert(err);
@@ -138,7 +138,6 @@ class TransactionsPage {
    * Устанавливает заголовок: «Название счёта»
    * */
   clear() {
-    console.log('я срабатываю!');
     this.renderTransactions([]);
     this.renderTitle('Название счета');
     this.lastOptions = null;
@@ -149,7 +148,9 @@ class TransactionsPage {
    * */
   renderTitle(name){
     const title = this.element.querySelector('.content-title');
-    title.innerText = name;
+    if (title) {
+      title.innerText = name;
+    }
   }
 
   /**
@@ -157,8 +158,10 @@ class TransactionsPage {
    * в формат «10 марта 2019 г. в 03:20»
    * */
   formatDate(date){
-    // const page = new TransactionsPage( document.getElementById( '#content' ));
-    // page.formatDate( '2019-03-10 03:20:41' );
+    const options = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'};
+    const dateTransaction = new Date(date).toLocaleDateString('ru-RU', options);
+    return dateTransaction;
+
   }
 
   /**
@@ -166,6 +169,7 @@ class TransactionsPage {
    * item - объект с информацией о транзакции
    * */
   getTransactionHTML(item){
+    const itemDate = this.formatDate(item.created_at);
     return `
       <div class="transaction transaction_${item.type} row">
           
@@ -176,7 +180,7 @@ class TransactionsPage {
 
               <div class="transaction__info">
                   <h4 class="transaction__title">${item.name}</h4>
-                  <div class="transaction__date">10 марта 2019 г. в 03:20</div>
+                  <div class="transaction__date">${itemDate}</div>
               </div>
           </div>
 
@@ -201,10 +205,8 @@ class TransactionsPage {
    * используя getTransactionHTML
    * */
   renderTransactions(data){
-    
-    data.forEach(item => {
-      const transactionHTML = this.getTransactionHTML(item);
-      this.element.querySelector('.content').insertAdjacentHTML("beforeEnd", transactionHTML);
-    })
+    const sectionTransactions = this.element.querySelector('.content');
+    const transactionHTML = data.map(item => this.getTransactionHTML(item));
+    sectionTransactions.innerHTML = transactionHTML;
   }
 }
