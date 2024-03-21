@@ -207,6 +207,6 @@ class TransactionsPage {
   renderTransactions(data){
     const sectionTransactions = this.element.querySelector('.content');
     const transactionHTML = data.map(item => this.getTransactionHTML(item));
-    sectionTransactions.innerHTML = transactionHTML;
+    sectionTransactions.innerHTML = transactionHTML.join('');
   }
 }
